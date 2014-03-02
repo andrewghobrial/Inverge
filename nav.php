@@ -1,4 +1,3 @@
-    
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -11,6 +10,10 @@
           <a class="navbar-brand" href="#"><img src="imgs/logo_small.jpg"></a>
         </div>
         <div class="navbar-collapse collapse">
+        <?php 
+
+		if(!isset($_COOKIE['session_id'])||$_COOKIE['session_id']!=md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt'])){
+        echo '
           <form class="navbar-form navbar-right" role="form" action="index.php" method="post">
             <div class="form-group">
               <input type="text" name="username" placeholder="Email" class="form-control">
@@ -19,7 +22,9 @@
               <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+          </form>';
+}
+      ?>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
