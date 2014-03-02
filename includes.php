@@ -41,6 +41,7 @@ function category_name($id){
 	}
 
 }
+
 function skill_name($id){
 
 	$query = mysql_query("SELECT * FROM Skills WHERE id =" . $id);
@@ -88,23 +89,6 @@ function list_skills($parent,$category_id){
 			$list .= "<li><a href='" . $parent . "?skill=" . $category{'id'} . "'>";
 			$list .= $category{'title'};
 			$list .= "</a></li>";
-		}
-		$list .= "
-		</ul>";
-	}
-	return $list;
-}
-function list_skills_checkbox($parent,$category_id){
-	$query = mysql_query("SELECT * FROM Skills WHERE category =" . $category_id);
-
-	if(mysql_num_rows($query)==0){
-		echo "error1";
-	}else {
-		$list = "<ul>";
-		while ($category = mysql_fetch_array($query)) {
-			$list .= "<input checked type=checkbox value='".$category{'title'}."'><a href='" . $parent . "?skill=" . $category{'id'} . "'>";
-			$list .= $category{'title'};
-			$list .= "</a></input><br>";
 		}
 		$list .= "
 		</ul>";
