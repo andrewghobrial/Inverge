@@ -35,7 +35,7 @@ exit();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="imgs/logo_small.jpg"></a>
+          <a class="navbar-brand" href="#">Inverge</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form" action="index.php" method="post">
