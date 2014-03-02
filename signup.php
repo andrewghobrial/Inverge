@@ -4,11 +4,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 $customer_update = mysql_query("INSERT INTO Persons (fname,lname,description,username,password) VALUES ('".$_REQUEST['fname']."','".$_REQUEST['lname']."','".$_REQUEST['description']."','".$_REQUEST['username']."','".$_REQUEST['password']."')");
 $customer_update2 = mysql_query("SELECT id FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'");
 $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
-    setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
+    setcookie('session_id',$auth_cookie_val, 0, '/', 'inverge.net',false);
     $arrayQ = mysql_fetch_assoc($customer_update2);
     $id= $arrayQ['id'];
-    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.php?id=$id");
-//header('Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.html');
+    header("Location: http://inverge.net/Inverge/person_profile.php?id=$id");
 
 }
 ?>

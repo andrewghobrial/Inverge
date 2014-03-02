@@ -70,10 +70,9 @@
 */
 				///Listing all teams related to this person
                  echo '<div class="col-6 col-sm-6 col-lg-6">
-              <h2>Skills</h2>
-              <input type=textarea style="width:350px" class="form-control" value="';
-               my_skills($personid);
-              echo '"></input> </div><!--/span-->';
+              <h2>Skills</h2>';
+              list_skills_edit();
+              echo '</div><!--/span-->';
 
 			}
 

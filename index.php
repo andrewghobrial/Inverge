@@ -6,7 +6,7 @@ $customer_update = mysql_query("SELECT id FROM Persons WHERE username='".$_REQUE
 if(mysql_num_rows($customer_update)==1) {
   $_SESSION['username'] = $_REQUEST['username'];
   $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
-    setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
+    setcookie('session_id',$auth_cookie_val, 0, '/', 'inverge.net',false);
     $arrayQ = mysql_fetch_assoc($customer_update);
     $id= $arrayQ['id'];
     $_SESSION['id'] = $id;
