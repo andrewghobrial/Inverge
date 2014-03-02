@@ -54,7 +54,7 @@
 				echo "<h1>" . $person{'fname'} . " " . $person{"lname"} . ": " . $person{"username"} . "</h1>" ;
 
 				echo '<div class="col-4 col-sm-4 col-lg-4">
-              		<h2>Experience</h2>
+              		<h2>Bio</h2>
               		<p>' . $person{'description'} . '</p>
             		</div><!--/span-->';
 

@@ -32,7 +32,7 @@ $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_S
 
         <input type="name" class="form-control" name="fname" placeholder="First Name" required autofocus>
         <input type="name" class="form-control" name="lname" placeholder="Last Name" required autofocus>
-        <input type="description" class="form-control" name="description" placeholder="Background" required autofocus>
+        <input type="description" class="form-control" name="description" placeholder="Brief bio" required autofocus>
         <input type="email" class="form-control" name="username" placeholder="Email address" required autofocus>
         <input type="password" class="form-control" name="password" placeholder="Password" required>
         

@@ -64,8 +64,10 @@ if (isset($_REQUEST['interested'])){
 				if(mysql_num_rows($idea_query)== 0){
 					echo 'This idea does not exist.';
 				}else {
-
 				  	while ($idea = mysql_fetch_array($idea_query)) {
+						if($idea{'img_url'} !== NULL){
+							echo "<img  style='max-width:300px;float: right;' src='" . $idea{'img_url'} . "'>";
+						}
 
 						echo "<h2>" . $idea{'title'} . "</h2>";
 		                echo "Idea by: " . link_to_person($idea{'owner_id'},get_person_name($idea{'owner_id'}));

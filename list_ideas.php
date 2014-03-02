@@ -40,8 +40,10 @@ if(!isset($_REQUEST['category'])){
         display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
         margin-bottom: 20px;
         width: 100%;
-        border: 2px solid gray; 
+        border: 1px solid gray; 
         padding: 10px;
+        border-radius:8px;
+        box-shadow: 1px 1px 1px #888888;
     }
 
                 </style>
@@ -75,7 +77,7 @@ if(!isset($_REQUEST['category'])){
       <!-- Example row of columns -->
       <div class="row">
             <div class="col-3 col-sm-3 col-lg-2" >
-              <h2>Areas of Interest</h2>
+              <h4>Sort by: <br />Areas of Interest</h4>
               <p>
               	<?php echo list_categories('list_ideas.php'); ?>
               </p>
@@ -102,7 +104,11 @@ if(!isset($_REQUEST['category'])){
 
 		                <h2>' . link_to_idea($idea{'id'},$idea{'title'}) .'</h2>
 		                <p>
-		                ' .
+		                ';
+		                if($idea{'img_url'} !== NULL){
+							echo "<img  style='max-width:100%;float: right;' src='" . $idea{'img_url'} . "'>";
+						}
+		                echo
 			  			link_to_person($idea{'owner_id'},get_person_name($idea{'owner_id'}));
 		     			echo "<br />";
 				  		echo $idea{'description'};

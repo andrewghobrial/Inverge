@@ -59,9 +59,9 @@ if(isset($_REQUEST['title']) ){
 	}
 	if($_REQUEST['title'] != null && $_REQUEST['description'] != null){
 		$formOk = true;
-		$query = 'INSERT INTO Ideas (title,description,owner_id)
+		$query = 'INSERT INTO Ideas (title,description,owner_id, img_url)
 			VALUES ("' . mysql_real_escape_string($_REQUEST['title']) . 
-				'","'. mysql_real_escape_string($_REQUEST['description']) . '","' . $current_user_id . '");';
+				'","'. mysql_real_escape_string($_REQUEST['description']) . '","' . $current_user_id . '","'. $_REQUEST['description'] . '");';
 		$result = mysql_query($query);
 		if (!$result) {
 		    die('Invalid query: ' . mysql_error());
@@ -103,6 +103,7 @@ if($formOk == false){
 	echo '
 	<form name="input" action="add_idea.php" method="get">
 	<b>Title:</b> <input type="title" class="form-control" name="title">' . $title_err . '<br>
+	<b>Image URL (optional):</b> <input type="title" class="form-control" name="image">'. '<br>
 	<b>Description:</b> <br />
 	<textarea rows="4" cols="50" class="form-control" name="description"></textarea>
 	<br />

@@ -29,7 +29,27 @@ if(!isset($_REQUEST['skill'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inverge - People</title>
+    <style type ='text/css'>
+	.mason-parent {
+    -moz-column-count: 3;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 10px;
+    column-count: 3;
+    column-gap: 10px;
+    }
 
+    .mason-child{
+        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        margin-bottom: 20px;
+        width: 100%;
+        border: 1px solid gray; 
+        padding: 10px;
+        border-radius:8px;
+        box-shadow: 1px 1px 1px #888888;
+    }
+
+                </style>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
@@ -62,10 +82,10 @@ if(!isset($_REQUEST['skill'])){
 
       <div class="row">
         <div class="col-3 col-sm-3 col-lg-2" >
-        <h2>Skills</h2>
+              <h4>Sort by: <br />Skills</h4>
         <p>
         
-          <?php echo list_skills('people.php'); ?>
+          <?php echo list_skills_category('people.php'); ?>
         </p>
       </div>
             <div class="col-9 col-sm-9 col-lg-10">
@@ -75,23 +95,25 @@ if(!isset($_REQUEST['skill'])){
 				else
 					echo 'Displaying all people with skill:  ' . skill_name($_REQUEST['skill']);
 				?></h2>
+				<div class='mason-parent'>
 
             <?php
             if(mysql_num_rows($persons_query)== 0){
                   echo 'There are no people.';
                 }else {
                     while ($person = mysql_fetch_array($persons_query)) {
-                      print "<div class=\"col-6 col-sm-6 col-lg-4\">";
+                      print "<div class=\"mason-child\">";
                       $name = $person{'fname'} . ' ' . $person{'lname'};
                       echo "<h2>". link_to_person($person{'id'},$name) . "</h2>";
                       echo "<p>".$person{'description'};
-                      echo "<br /><b>Skills: </b><br />"; 
+                      echo "<br /><b>Email: </b> " . $person{'username'}; 
                       my_skills($person{'id'});
                       echo "</p>";
                       print "</div>";
                     }
                  }
             ?>
+            </div>
           </div>
   </div><!--/row-->
 
