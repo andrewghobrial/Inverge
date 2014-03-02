@@ -34,6 +34,12 @@
 
         <h1>Person Profile</h1>
          <a href="people.php">List of people</a> > Person Profile
+         <?php
+         	if($personid == $global_current_user_id){
+         		echo '        <br /><br /> <button  style="width:180px;" class="btn btn-lg btn-primary btn-block" onClick="window.location.href=\'person_profile_edit.php\'">Edit My Profile</button>';
+         	}
+         
+         ?>
 
       </div>
     </div>

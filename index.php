@@ -6,17 +6,16 @@ $customer_update = mysql_query("SELECT id FROM Persons WHERE username='".$_REQUE
 if(mysql_num_rows($customer_update)==1) {
   $_SESSION['username'] = $_REQUEST['username'];
   $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
-    setcookie('session_id',$auth_cookie_val, 0, '/', 'inverge.net',false);
+    setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
     $arrayQ = mysql_fetch_assoc($customer_update);
     $id= $arrayQ['id'];
     $_SESSION['id'] = $id;
-    header("Location: http://inverge.net/Inverge/list_ideas.php");
-} else {
-  print '<script>alert("The email and/or password is incorrect!");</script>';
+    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/list_ideas.php");
 }
-
+exit();
 
 }
+require('includes.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,24 +30,19 @@ if(mysql_num_rows($customer_update)==1) {
   </head>
   <body>
     <?php 
-    include('nav.php');
+   		$global_current_user_id = $_SESSION['id'];
+    	include('nav.php');
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="col-md-7">
-          <img src="imgs/Logo.jpg">
-          <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
-          <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
-        </div>
-        <div class="col-md-3">
-          <embed width="480" height="390" src="http://www.youtube.com/v/XGSy3_Czz8k" type="application/x-shockwave-flash"> </embed>
-        </div>
-        
+
+
+        <h1> </h1>
+        <h1> </h1>
+        <img src="imgs/Logo.jpg">
+        <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
+        <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
       </div>
     </div>
 
@@ -78,10 +72,6 @@ if(mysql_num_rows($customer_update)==1) {
         <p>&copy; Inverge 2014</p>
       </footer>
     </div> <!-- /container -->
-
-
-
-
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

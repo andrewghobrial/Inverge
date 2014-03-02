@@ -102,9 +102,9 @@ function list_skills_checkbox($parent,$category_id){
 	}else {
 		$list = "<ul>";
 		while ($category = mysql_fetch_array($query)) {
-			$list .= "<input type=checkbox value=".$category{'title'}."."><a href='" . $parent . "?skill=" . $category{'id'} . "'>";
+			$list .= "<input checked type=checkbox value='".$category{'title'}."'><a href='" . $parent . "?skill=" . $category{'id'} . "'>";
 			$list .= $category{'title'};
-			$list .= "</a></li>";
+			$list .= "</a></input><br>";
 		}
 		$list .= "
 		</ul>";
