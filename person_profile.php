@@ -1,5 +1,5 @@
 <?php
-	
+	require_once('authenticate.php');
 	
 	if(isset($_REQUEST["id"])){
 		$personid = $_REQUEST["id"];
