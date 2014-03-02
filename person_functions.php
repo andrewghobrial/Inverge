@@ -42,7 +42,7 @@ function my_teams($personid){
 }
 
 
-function my_interests($personid){
+function my_idea_interests($personid){
 	$interest_query = mysql_query("SELECT * FROM Interest WHERE person_id =" . $personid);
 
 	if(mysql_num_rows($interest_query)==0){
@@ -69,11 +69,32 @@ function my_skills($personid){
 			while ($skill = mysql_fetch_array($each_skill)) {
 				$skill_category = mysql_query("SELECT * FROM Skill_Category WHERE id =" . $skill{'category'});
 				$skill_cat = mysql_fetch_assoc($skill_category);
-				echo $skill{'title'} . "(" . $skill_cat{'title'} . ") <br />";
+				echo $skill{'title'} . " (" . $skill_cat{'title'} . ") <br />";
 
 			}
 		}
 	}
 }
 
+function my_interests($personid){
+
+
+
+	$skills_query = mysql_query("SELECT * FROM Person_to_Interest WHERE person_id =" . $personid);
+
+	if(mysql_num_rows($skills_query)==0){
+		echo "This person has no interests listed.";
+	}else{
+		while ($skills = mysql_fetch_array($skills_query)) {
+			$each_skill = mysql_query("SELECT * FROM AnIdeaCategory WHERE id =" . $skills{'interest_id'});
+			while ($skill = mysql_fetch_array($each_skill)) {
+				$skill_category = mysql_query("SELECT * FROM Skill_Category WHERE id =" . $skill{'category'});
+				$skill_cat = mysql_fetch_assoc($skill_category);
+				echo $skill{'title'} . "<br />";
+
+			}
+		}
+	}
+
+}
 ?>
