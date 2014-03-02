@@ -4,10 +4,12 @@ require('dbconnect.php');
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 $customer_update = mysql_query("SELECT id FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'");
 if(mysql_num_rows($customer_update)==1) {
+  $_SESSION['username'] = $_REQUEST['username'];
   $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
     setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
     $arrayQ = mysql_fetch_assoc($customer_update);
     $id= $arrayQ['id'];
+    $_SESSION['id'] = $id;
     header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/list_ideas.php");
 }
 exit();
@@ -35,7 +37,7 @@ exit();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Inverge</a>
+          <a class="navbar-brand" href="#"><img src="imgs/logo_small.jpg"></a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form" action="index.php" method="post">
