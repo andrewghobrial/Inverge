@@ -1,3 +1,21 @@
+<?php
+session_start();
+require('dbconnect.php');
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+$customer_update = mysql_query("SELECT id FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'");
+if(mysql_num_rows($customer_update)==1) {
+  $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
+    setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
+    $arrayQ = mysql_fetch_assoc($customer_update);
+    $id= $arrayQ['id'];
+    //print "Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.php?id=$id";
+    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.php?id=$id");
+}
+//  else print "<br>LOGIN FAILED!";
+exit();
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,12 +40,12 @@
           <a class="navbar-brand" href="#">Inverge</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+          <form class="navbar-form navbar-right" role="form" action="index.php" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" name="username" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
@@ -44,7 +62,7 @@
         <h1> </h1>
         <img src="imgs/Logo.jpg">
         <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Sign Up &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
       </div>
     </div>
 
