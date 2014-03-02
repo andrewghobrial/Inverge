@@ -62,7 +62,7 @@ function list_categories($parent){
 	if(mysql_num_rows($query)==0){
 		echo "error";
 	}else {
-		$list = "<ul>";
+		$list = "<ul style='list-style-type:none;padding:0px;margin:0px;>";
 		while ($category = mysql_fetch_array($query)) {
 			$list .= "<li><a href='" . $parent . "?category=" . $category{'id'} . "'>";
 			$list .= $category{'title'};

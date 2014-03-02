@@ -36,13 +36,19 @@ require('includes.php');
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col-md-7">
+          <img src="imgs/Logo.jpg">
+          <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
+          <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <embed width="480" height="390" src="https://www.youtube.com/watch?v=TILa0VBwD8Q" type="application/x-shockwave-flash"> </embed>
+        </div>
 
-
-        <h1> </h1>
-        <h1> </h1>
-        <img src="imgs/Logo.jpg">
-        <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
-        <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
       </div>
     </div>
 
