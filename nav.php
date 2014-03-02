@@ -23,7 +23,18 @@
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>';
-}
+		}else {
+			echo '<div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="">My Profile</a></li>
+            <li><a href="">Ideas</a></li>
+            <li><a href="">People</a></li>
+            <li><a href="">Log out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>';
+
+		}	
       ?>
         </div><!--/.navbar-collapse -->
       </div>
