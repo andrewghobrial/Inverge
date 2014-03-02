@@ -1,11 +1,10 @@
 <?php
 
-include('dbconnect.php');
+require('dbconnect.php');
+require('includes.php');
 
 
 function my_teams($ideaid){
-
-	echo "<h3>teams:</h3>";
 
 	$team_query = mysql_query("SELECT * FROM Teams WHERE idea_id =" . $ideaid);
 
@@ -25,16 +24,16 @@ function my_teams($ideaid){
 				while ($team_members = mysql_fetch_array($team_query)) {
 		  			$person_query = mysql_query("SELECT * FROM Persons WHERE id =" . $team_members{'person_id'});
 	  				while ($person = mysql_fetch_array($person_query)) {
-	  					echo $person{'fname'} . ' ' . $person{'lname'};
+	  					$name = $person{'fname'} . ' ' . $person{'lname'};
+	  					echo link_to_person($person{'id'},$name);
 	  				}
 				}
 			}
-
 	  	}
-
 	}
-
-
 }
+
+
+
 
 ?>

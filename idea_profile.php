@@ -5,8 +5,8 @@ if(isset($_REQUEST["id"])){
 }else {
 	$ideaid = 1;
 }
-include('dbconnect.php');
-include('idea_functions.php');
+require('dbconnect.php');
+require('idea_functions.php');
 	
 $idea_query = mysql_query("SELECT * FROM Ideas WHERE id =" . $ideaid);
 
@@ -17,6 +17,9 @@ $idea_query = mysql_query("SELECT * FROM Ideas WHERE id =" . $ideaid);
 	  	while ($idea = mysql_fetch_array($idea_query)) {
 
 			echo "<h1>" . $idea{'title'} . "</h1>";
+			echo "category: ";
+
+			echo category_name($idea{'category_id'}) . "<br />";
 
 
 
@@ -26,7 +29,8 @@ $idea_query = mysql_query("SELECT * FROM Ideas WHERE id =" . $ideaid);
 				echo 'Cannot locate idea\'s owner.';
 			}else {
 		  		while ($ownerperson = mysql_fetch_array($query)) {
-					echo $ownerperson{'fname'} . " " . $ownerperson{'lname'};
+		  			$name = $ownerperson{'fname'} . " " . $ownerperson{'lname'};
+					echo link_to_person($ownerperson{'id'}, $name);
 		  		}
 		  	}
 
