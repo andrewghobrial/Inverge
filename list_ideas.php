@@ -59,7 +59,7 @@ if(!isset($_REQUEST['category'])){
       <div class="container">
 
         <h1>Ideas</h1>
-        List of ideas
+        <a href="list_ideas.php">List of ideas</a>
         
       </div>
     </div>

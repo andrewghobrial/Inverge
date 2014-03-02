@@ -34,6 +34,8 @@ require('idea_functions.php');
       <div class="container">
 
         <h1>Idea</h1>
+        <a href="list_ideas.php">List of ideas</a> > Idea Profile
+
         
       </div>
     </div>
