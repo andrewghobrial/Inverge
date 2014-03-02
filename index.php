@@ -36,12 +36,12 @@ exit();
       <div class="container">
         <br>
         <br>
-        <div class="col-md-6">
+        <div class="col-md-7">
           <img src="imgs/Logo.jpg">
           <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
           <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <embed width="480" height="390" src="http://www.youtube.com/v/XGSy3_Czz8k" type="application/x-shockwave-flash"> </embed>
         </div>
         
