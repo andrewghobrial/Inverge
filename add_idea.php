@@ -3,7 +3,7 @@ require_once('authenticate.php');
 require('dbconnect.php');
 require('includes.php');
 
-$current_user_id = 1;
+$current_user_id = $_SESSION['id'];
 
 $title_err = '';
 $description_err = '';
