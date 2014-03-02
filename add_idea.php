@@ -101,7 +101,7 @@ if($formOk == false){
 		echo "<span style='color: red;'>Please see below errors in form.</span><br /><br />";
 	}
 	echo '
-	<form name="input" action="add_idea.php" method="get">
+	<form name="input" action="add_idea.php" method="post">
 	<b>Title:</b> <input type="title" class="form-control" name="title">' . $title_err . '<br>
 	<b>Image URL (optional):</b> <input type="title" class="form-control" name="image">'. '<br>
 	<b>Description:</b> <br />
