@@ -72,32 +72,27 @@
 </nav>
 
 <?php
-$username = "invergeuser";
-$password = "abcd1234";
-$hostname = "invergeinstance.cwy4vi0q7lmp.us-east-1.rds.amazonaws.com"; 
-
-//connection to the database
-$dbhandle = mysql_connect($hostname, $username, $password) 
-  or die("Unable to connect to MySQL");
-echo "Connected to MySQL<br>";
-
-//select a database to work with
-$selected = mysql_select_db("invergedb",$dbhandle) 
-  or die("Could not select invergedb");
-
+  include('dbconnect.php');
 
   $result = mysql_query("SELECT id, fname, lname FROM Persons");
 //fetch tha data from the database
   while ($row = mysql_fetch_array($result)) {
-     echo "ID:".$row{'id'}." Name:".$row{'fname'}." 
-     ".$row{'lname'}."<br>";
+     echo "<h1>ID:".$row{'id'}." Name:".$row{'fname'}." 
+     ".$row{'lname'}."</h1><br />";
+    $my_id = $row{'id'};
+    $result2 = mysql_query("SELECT id, idea_id FROM Person_Idea WHERE id =" . $my_id);
+    while ($row2 = mysql_fetch_array($result2)) {
+      $ideaid = $row2{'idea_id'};
+      $result3 = mysql_query("SELECT id, title, description FROM Ideas WHERE id =" . $ideaid);
+      while ($row3 = mysql_fetch_array($result3)) {
+        echo "<h5>idea:</h5>" . $row3{'title'} . "<br />" . $row3{'description'};
+      }
+    }
   }
 
   mysql_close($link);
 
-?>
-
-    <?php echo "hello bitchez"; ?>
+echo "hello bitchez"; ?>
     <h1>Hello, world!</h1>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
