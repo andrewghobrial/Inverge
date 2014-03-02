@@ -97,7 +97,7 @@
               echo '</p> </div><!--/span-->';
 
 
-              echo '            
+    		echo '            
              <div class="col-4 col-sm-4 col-lg-4">
               <h2>My Ideas</h2>
               <p>';
@@ -107,13 +107,13 @@
             <div class="col-4 col-sm-4 col-lg-4">
               <h2>Interests</h2>
               <p>';
-				ECHO "WHOOPS I WAS SUPPOSED TO DO THIS";
+				ECHO my_interests($personid);
               echo '</p>
             </div><!--/span-->
             <div class="col-4 col-sm-4 col-lg-4">
               <h2>Ideas that interest me</h2>
               <p>';
-				my_interests($personid);
+				my_idea_interests($personid);
               echo '</p>
             </div><!--/span-->';
 
