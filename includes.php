@@ -28,7 +28,7 @@ function link_category($parent, $id){
 }
 function category_name($id){
 
-	$query = mysql_query("SELECT * FROM Skill_Category WHERE id =" . $id);
+	$query = mysql_query("SELECT * FROM AnIdeaCategory WHERE id =" . $id);
 
 	if(mysql_num_rows($query)==0){
 		echo "error";
@@ -41,7 +41,7 @@ function category_name($id){
 }
 
 function list_categories($parent){
-	$query = mysql_query("SELECT * FROM Skill_Category");
+	$query = mysql_query("SELECT * FROM AnIdeaCategory");
 
 	if(mysql_num_rows($query)==0){
 		echo "error";
@@ -54,7 +54,7 @@ function list_categories($parent){
 		}
 		$list .= "
 		<li>
-			<a href='" . $parent . "?category=all'>all</a>
+			<a href='" . $parent . "?category=all'>View All</a>
 		</li>
 		</ul>";
 	}

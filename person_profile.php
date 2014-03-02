@@ -41,7 +41,7 @@
     <div class="jumbotron">
       <div class="container">
 
-        <h1>IMG</h1>
+        <h1>Person Profile</h1>
         
       </div>
     </div>
@@ -61,13 +61,13 @@
 
 				echo "<h1>" . $person{'fname'} . " " . $person{"lname"} . "</h1>";
 
-				echo '<div class="col-6 col-sm-6 col-lg-4">
+				echo '<div class="col-4 col-sm-4 col-lg-4">
               		<h2>Experience</h2>
               		<p>' . $person{'description'} . '</p>
             		</div><!--/span-->';
 
 				///Listing all ideas related to this person
-            	echo '<div class="col-6 col-sm-6 col-lg-4">
+            	echo '<div class="col-4 col-sm-4 col-lg-4">
               <h2>Teams</h2>
               <p>';
               my_teams($personid);
@@ -75,7 +75,7 @@
             </div><!--/span-->';
 
 				///Listing all teams related to this person
-                 echo '<div class="col-6 col-sm-6 col-lg-4">
+                 echo '<div class="col-4 col-sm-4 col-lg-4">
               <h2>Skills</h2>
               <p>';
                my_skills($personid);
@@ -83,19 +83,19 @@
 
 
               echo '            
-             <div class="col-6 col-sm-6 col-lg-4">
+             <div class="col-4 col-sm-4 col-lg-4">
               <h2>My Ideas</h2>
               <p>';
 				my_ideas($personid);
               echo '</p>
             </div><!--/span-->
-            <div class="col-6 col-sm-6 col-lg-4">
+            <div class="col-4 col-sm-4 col-lg-4">
               <h2>Interests</h2>
               <p>';
 				ECHO "WHOOPS I WAS SUPPOSED TO DO THIS";
               echo '</p>
             </div><!--/span-->
-            <div class="col-6 col-sm-6 col-lg-4">
+            <div class="col-4 col-sm-4 col-lg-4">
               <h2>Ideas that interest me</h2>
               <p>';
 				my_interests($personid);
