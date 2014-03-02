@@ -76,13 +76,13 @@ if(!isset($_REQUEST['category'])){
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-            <div class="col-4 col-sm-4 col-lg-2" style = "float: left;">
+            <div class="col-3 col-sm-3 col-lg-2" >
               <h2>Categories</h2>
               <p>
               	<?php echo list_categories('list_ideas.php'); ?>
               </p>
             </div><!--/span-->
-			<div class="col-8 col-sm-8 col-lg-10">
+			<div class="col-9 col-sm-9 col-lg-10">
 				<h2><?php
 				if($all)
 					echo 'Displaying all ideas';
@@ -106,17 +106,17 @@ if(!isset($_REQUEST['category'])){
 		                <p>
 		                ' .
 			  			 link_to_person($idea{'owner_id'},get_person_name($idea{'owner_id'}));
-		                					echo "<br />category: ";
-					$category_query = mysql_query("SELECT Idea_Category.category_id FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND Ideas.id =2");
-					if(mysql_num_rows($category_query)==0){
-						echo "no categories";
-					}else {
-						while ($category = mysql_fetch_array($category_query)) {
-							echo link_category("list_ideas.php",$category{'category_id'}) . " ";
+		                					echo "<br />categories: ";
+						$category_query = mysql_query("SELECT Idea_Category.category_id FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND Ideas.id =2");
+						if(mysql_num_rows($category_query)==0){
+							echo "no categories";
+						}else {
+							while ($category = mysql_fetch_array($category_query)) {
+								echo link_category("list_ideas.php",$category{'category_id'}) . " ";
+							}
 						}
-					}
-					echo "<br />";
-			  		echo $idea{'description'};
+						echo "<br />";
+				  		echo $idea{'description'};
 
 		                echo '</p>
 		                </div>';

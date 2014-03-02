@@ -2,18 +2,17 @@
 session_start();
 require('dbconnect.php');
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-$customer_update = mysql_query("SELECT * FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'");
-print "SELECT * FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'";
-print "<br>".mysql_num_rows($customer_update);
-print "<br>".mysql_num_rows($customer_update)==1;
+$customer_update = mysql_query("SELECT id FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'");
 if(mysql_num_rows($customer_update)==1) {
-  print "<br>LOGGED IN!";
   $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
     setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
+    $arrayQ = mysql_fetch_assoc($customer_update);
+    $id= $arrayQ['id'];
+    //print "Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.php?id=$id";
+    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.php?id=$id");
 }
-  else print "<br>LOGIN FAILED!";
+//  else print "<br>LOGIN FAILED!";
 exit();
-//header('Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/profile.html');
 
 }
 ?>
