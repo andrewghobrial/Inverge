@@ -6,9 +6,22 @@ if(isset($_REQUEST["id"])){
 }else {
 	$ideaid = 1;
 }
+
+require_once('authenticate.php');
 require('dbconnect.php');
-require('idea_functions.php');
+require('includes.php');
+$successmessage = "";
+if (isset($_REQUEST['interested'])){
 	
+	$query_cat = 'INSERT INTO Interest (idea_id,person_id) VALUES ("' . $ideaid . '","' . $global_current_user_id . '")';
+	$result = mysql_query($query_cat);
+	if (!$result) {
+		die('Invalid query: ' . mysql_error());
+	}else {
+		$successmessage = "You are now interested in this idea.";
+	}
+
+}
 
 ?>
 
@@ -71,10 +84,18 @@ require('idea_functions.php');
 		                echo '</p>';
 
 						echo "<h3>Description:</h3>";
-						echo $idea{'description'};
+						echo $idea{'description'} . "<br />";
 
-						my_teams($ideaid);
-
+						echo "<h3>People Interested in this idea:</h3>";
+						my_interested_ppl($ideaid);
+						//my_teams_idea($ideaid);
+						$category_query = mysql_query("SELECT * FROM Interest WHERE person_id =" . $global_current_user_id . " AND idea_id =" . $ideaid);
+						if(mysql_num_rows($category_query)==0){
+							echo '<br /><br /><button  style="width:150px;" class="btn btn-lg btn-primary btn-block" onClick="window.location.href=\'idea_profile.php?id=' . $ideaid . '&interested=true\'">I\'m Interested</button>';
+				  		}else {
+							echo '<br /><br />You are interested in this idea.';
+				  		}
+						echo '<br /><br /><span style="color: red;">' . 	$successmessage . "</span>";
 
 				  	}
 
@@ -90,8 +111,6 @@ require('idea_functions.php');
         <p>&copy; Inverge 2014</p>
       </footer>
     </div> <!-- /container -->
-
-
 
 
 

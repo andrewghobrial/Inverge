@@ -51,11 +51,11 @@
 
 		  	while ($person = mysql_fetch_array($person_query)) {
 
-				echo "<h1>" . $person{'fname'} . " " . $person{"lname"} . ": " . $person{"username"} . "</h1>" ;
+				echo "<input type=text value=\"".$person{'fname'}."\" ></input>" ."<input type=text value=\"". $person{"lname"} . "\"></input>: " ."<input type=text value=\"" .$person{"username"} . "\"></input>" ;
 
 				echo '<div class="col-4 col-sm-4 col-lg-4">
               		<h2>Experience</h2>
-              		<p>' . $person{'description'} . '</p>
+              		<input type=text cols=40 value=">' . $person{'description'} . '"></input>
             		</div><!--/span-->';
 
 				///Listing all ideas related to this person

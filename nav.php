@@ -10,7 +10,7 @@ session_start();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="imgs/logo_small.jpg"></a>
+          <a class="navbar-brand" href="index.php"><img src="imgs/logo_small.jpg"></a>
         </div>
         <div class="navbar-collapse collapse">
         <?php 
@@ -30,10 +30,10 @@ session_start();
 		}else {
 			echo "<div class=\"collapse navbar-collapse\">
           <ul class=\"nav navbar-nav\">
-            <li><a href=\"person_profile.php?id=" . $_SESSION['id'] . "\">My Profile</a></li>
+            <li><a href=\"person_profile.php?id=" . $global_current_user_id . "\">My Profile</a></li>
             <li><a href=\"list_ideas.php\">Ideas</a></li>
             <li><a href=\"people.php\">People</a></li>
-            <li><a href=\"\">Log out</a></li>
+            <li><a href=\"logout.php\">Log out</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->

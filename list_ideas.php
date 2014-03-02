@@ -59,8 +59,15 @@ if(!isset($_REQUEST['category'])){
       <div class="container">
 
         <h1>Ideas</h1>
-        <a href="list_ideas.php">List of ideas</a>
-        
+        <?php 
+        if($all == false)
+        	$category_crumb = " > " . category_name($_REQUEST['category']);	
+        else 
+       	 $category_crumb = "";
+       	
+       	?>
+        <a href="list_ideas.php">List of ideas</a> <?php echo $category_crumb; ?>
+        <br /><br /> <button  style="width:150px;" class="btn btn-lg btn-primary btn-block" onClick="window.location.href='add_idea.php'">Create Idea</button>
       </div>
     </div>
 
@@ -68,7 +75,7 @@ if(!isset($_REQUEST['category'])){
       <!-- Example row of columns -->
       <div class="row">
             <div class="col-3 col-sm-3 col-lg-2" >
-              <h2>Categories</h2>
+              <h2>Areas of Interest</h2>
               <p>
               	<?php echo list_categories('list_ideas.php'); ?>
               </p>

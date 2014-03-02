@@ -1,7 +1,6 @@
 <?php
 
 require('dbconnect.php');
-require('includes.php');
 
 
 function my_ideas($personid){
@@ -69,7 +68,7 @@ function my_skills($personid){
 			while ($skill = mysql_fetch_array($each_skill)) {
 				$skill_category = mysql_query("SELECT * FROM Skill_Category WHERE id =" . $skill{'category'});
 				$skill_cat = mysql_fetch_assoc($skill_category);
-				echo $skill{'title'} . " (" . $skill_cat{'title'} . ") <br />";
+				echo "<a href='people.php?skill=" . $skill{'id'} . "'>" . $skill{'title'} . " (" . $skill_cat{'title'} . ")</a> <br />";
 
 			}
 		}
@@ -77,8 +76,6 @@ function my_skills($personid){
 }
 
 function my_interests($personid){
-
-
 
 	$skills_query = mysql_query("SELECT * FROM Person_to_Interest WHERE person_id =" . $personid);
 
@@ -90,7 +87,7 @@ function my_interests($personid){
 			while ($skill = mysql_fetch_array($each_skill)) {
 				$skill_category = mysql_query("SELECT * FROM Skill_Category WHERE id =" . $skill{'category'});
 				$skill_cat = mysql_fetch_assoc($skill_category);
-				echo $skill{'title'} . "<br />";
+				echo "<a href='list_ideas.php?category=" . $skill{'id'}   . "'>" . $skill{'title'} . "</a><br />";
 
 			}
 		}
