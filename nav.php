@@ -28,15 +28,24 @@ session_start();
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>';
 		}else {
+<<<<<<< HEAD
+			echo "<div class=\"collapse navbar-collapse\">
+          <ul class=\"nav navbar-nav\">
+            <li><a href=\"person_profile.php?id=" . $_SESSION['id'] . "\">My Profile</a></li>
+            <li><a href=\"list_ideas.php\">Ideas</a></li>
+            <li><a href=\"people.php\">People</a></li>
+            <li><a href=\"\">Log out</a></li>
+=======
 			echo '<div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="person_profile.php?id=' . '' . '">'  . '' . 'My Profile</a></li>
             <li><a href="list_ideas.php">Ideas</a></li>
             <li><a href="people.php">People</a></li>
             <li><a href="">Log out</a></li>
+>>>>>>> 42022b4e96c755baac3c964d56e173a5fdb47b23
           </ul>
         </div><!--/.nav-collapse -->
-      </div>';
+      </div>";
 
 		}	
       ?>
