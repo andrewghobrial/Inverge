@@ -46,7 +46,7 @@ if(mysql_num_rows($customer_update)==1) {
           <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
         </div>
         <div class="col-md-3">
-          <embed width="480" height="390" src="http://www.youtube.com/v/XGSy3_Czz8k" type="application/x-shockwave-flash"> </embed>
+          <embed width="480" height="390" src="https://www.youtube.com/watch?v=TILa0VBwD8Q" type="application/x-shockwave-flash"> </embed>
         </div>
         
       </div>
