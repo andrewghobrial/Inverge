@@ -53,7 +53,7 @@
 
 				echo "<h1>" . $person{'fname'} . " " . $person{"lname"} . ": " . $person{"username"} . "</h1>" ;
 
-				echo '<div class="col-4 col-sm-4 col-lg-4">
+				echo '<div class="col-12 col-sm12 col-lg-12">
               		<h2>Bio</h2>
               		<p>' . $person{'description'} . '</p>
             		</div><!--/span-->';
@@ -67,28 +67,28 @@
             </div><!--/span-->';
 */
 				///Listing all teams related to this person
-                 echo '<div class="col-4 col-sm-4 col-lg-4">
-              <h2>Skills</h2>
+                 echo '<div class="col-3 col-sm-3 col-lg-3">
+              <h3>Skills</h3>
               <p>';
                my_skills($personid);
               echo '</p> </div><!--/span-->';
 
 
     		echo '            
-             <div class="col-4 col-sm-4 col-lg-4">
-              <h2>My Ideas</h2>
+             <div class="col-3 col-sm-3 col-lg-3">
+              <h3>My Ideas</h3>
               <p>';
 				my_ideas($personid);
               echo '</p>
             </div><!--/span-->
-            <div class="col-4 col-sm-4 col-lg-4">
-              <h2>Interests</h2>
+            <div class="col-3 col-sm-3 col-lg-3">
+              <h3>Interests</h3>
               <p>';
 				ECHO my_interests($personid);
               echo '</p>
             </div><!--/span-->
-            <div class="col-4 col-sm-4 col-lg-4">
-              <h2>Ideas that interest me</h2>
+            <div class="col-3 col-sm-3 col-lg-3">
+              <h3>Ideas I think are Interesting</h3>
               <p>';
 				my_idea_interests($personid);
               echo '</p>

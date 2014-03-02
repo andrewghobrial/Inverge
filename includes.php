@@ -119,6 +119,31 @@ function list_skills_category($parent){
 }
 
 
+function list_skills_category($parent){
+	$query = mysql_query("SELECT * FROM Skill_Category");
+
+	if(mysql_num_rows($query)==0){
+		echo "error";
+	}else {
+		$list = "<ul style='list-style-type: none;padding:0px;margin:0px;'>";
+		while ($category = mysql_fetch_array($query)) {
+			$list .= "<li>";
+			$list .= $category{'title'};
+			$list .= list_skills( $parent, $category{'id'});
+			$list .="</li>";
+		}
+		$list .= "
+		<li>
+			<a href='" . $parent . "?skill=all'>View All</a>
+		</li>
+		
+		</ul>";
+	}
+	return $list;
+}
+
+
+
 
 function check_categories(){
 	$query = mysql_query("SELECT * FROM AnIdeaCategory");
@@ -129,7 +154,7 @@ function check_categories(){
 		return "error";
 	}else {
 		while ($category = mysql_fetch_array($query)) {
-			$list .= '<input type="checkbox" class="form-control" name="interests[]" value="' . $category{'id'} . '">' . $category{'title'} . '<br>';
+			$list .= '<input type="checkbox"  name="interests[]" value="' . $category{'id'} . '">  ' . $category{'title'} . '<br>';
 		}
 	}
 	return $list;
