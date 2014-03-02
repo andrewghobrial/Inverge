@@ -8,10 +8,8 @@ if(mysql_num_rows($customer_update)==1) {
     setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
     $arrayQ = mysql_fetch_assoc($customer_update);
     $id= $arrayQ['id'];
-    //print "Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.php?id=$id";
-    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/person_profile.php?id=$id");
+    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/list_ideas.php");
 }
-//  else print "<br>LOGIN FAILED!";
 exit();
 
 }
