@@ -42,7 +42,7 @@ if(mysql_num_rows($customer_update)==1) {
         <br>
         <div class="col-md-7">
           <img src="imgs/Logo.jpg">
-          <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
+          <p>An innovative convergence of people and ideas. Connect with other university students over common ideas and complimentary skills to form teams for successful ventures!</p>
           <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
         </div>
         <div class="col-md-3">
@@ -59,17 +59,17 @@ if(mysql_num_rows($customer_update)==1) {
       <div class="row">
         <div class="col-md-4">
           <h2>Ideas</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p>Discover great ideas (and filter by interest area) or create an idea of your own! Indicate your interest in an idea to have it listed on your profile, and contact other members to form a team around an idea.</p>
           <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>People</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p>See profiles for the other members of the InVerge community. Filter by skills they bring to the table and click on a profile to view their bio, skills, interests, ideas, and email contact.</p>
           <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2>teams</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p>Contact other members to form teams around an idea. Multiple teams can form around one idea - creativity and execution are what set your team apart!</p>
           <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
         </div>
       </div>
