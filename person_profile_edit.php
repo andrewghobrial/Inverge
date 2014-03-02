@@ -5,9 +5,18 @@
 	$personid = $global_current_user_id;
 	require('dbconnect.php');
 	require('includes.php');
+	$updated = false;
 
 	if(isset($_REQUEST['submit'])){
-		echo 'fuck u' . $_REQUEST['fname'];
+		$query = "UPDATE Persons
+					SET fname='" . mysql_real_escape_string($_REQUEST['fname']) . "',lname='" . mysql_real_escape_string($_REQUEST['lname']) . "',username='" . mysql_real_escape_string($_REQUEST['username']). "',description='" . mysql_real_escape_string($_REQUEST['bio']) . 
+					"' WHERE id=" . $personid;
+		$result = mysql_query($query);
+		if (!$result) {
+		    die('Error! ' . mysql_error());
+		}else {
+			$updated = true;
+		}
 	}
 
 ?>
@@ -32,8 +41,8 @@
     <div class="jumbotron">
       <div class="container">
 
-        <h1>Person Profile</h1>
-         <a href="people.php">List of people</a> > Person Profile
+        <h1>Edit Profile</h1>
+         <a href="person_profile.php?id=<?php echo $global_current_user_id ?>">My Profile</a> > Edit Profile
 
       </div>
     </div>
@@ -50,10 +59,13 @@
 		}else {
 
 		  	while ($person = mysql_fetch_array($person_query)) {
-				echo '	<form name="input" action="person_profile_edit.php" method="get">';
-				echo "First Name: <input style=\"width:150px\" name='fname' class=\"form-control\" type=text value=\"".$person{'fname'}."\" ></input>
-				<br>" ."Last Name: <input style=\"width:150px\" name='lname' class=\"form-control\" type=text value=\"". $person{"lname"} . "\"></input>
-				<br>" ."E-mail Address: <input style=\"width:250px\" name='username' class=\"form-control\" type=text value=\"" .$person{"username"} . "\"></input><br>" ;
+		  		if($updated == true){
+		  			echo "<span style='color:red;'>Your profile has been updated.</span>";
+		  		}
+				echo '	<form name="input" action="person_profile_edit.php" method="post">';
+				echo "First Name: <input style=\"width:150px\" maxlength='30' name='fname' class=\"form-control\" type=text value=\"".$person{'fname'}."\" ></input>
+				<br>" ."Last Name: <input style=\"width:150px\" maxlength='30' name='lname' class=\"form-control\" type=text value=\"". $person{"lname"} . "\"></input>
+				<br>" ."E-mail Address: <input style=\"width:250px\" maxlength='100' name='username' class=\"form-control\" type=text value=\"" .$person{"username"} . "\"></input><br>" ;
 
 				echo '
               		Bio: <input type=textarea  name="bio" style="width:350px" class="form-control" value="' . $person{'description'} . '"></input>
@@ -72,7 +84,7 @@
               <h2>Skills will go here</h2>';
               
               
-              echo '<br /><br /> <button  style="width:150px;"  class="btn btn-lg btn-primary btn-block" type="submit">Submit!</button>';
+              echo '<br /><br /> <button  style="width:150px;" name="submit" class="btn btn-lg btn-primary btn-block" type="submit">Submit!</button>';
               
               echo '</div></form><!--/span-->';
 			
