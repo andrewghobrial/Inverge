@@ -2,8 +2,6 @@
 require_once('authenticate.php');
 require('dbconnect.php');
 require('includes.php');
-print $_SESSION['username'];
-exit();
 $persons_query = mysql_query("SELECT * FROM Persons");
 ?>
 
@@ -45,23 +43,20 @@ $persons_query = mysql_query("SELECT * FROM Persons");
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-            <div class="col-6 col-sm-6 col-lg-4">
-              <?php 
-                if(mysql_num_rows($persons_query)== 0){
+            <?php
+            if(mysql_num_rows($persons_query)== 0){
                   echo 'There are no ideas.';
                 }else {
                     while ($person = mysql_fetch_array($persons_query)) {
+                      print "<div class=\"col-6 col-sm-6 col-lg-4\">";
                       $name = $person{'fname'} . ' ' . $person{'lname'};
-                      echo "<h1>". link_to_person($person{'id'},$name) . "</h1>";
-                      echo $person{'description'};
+                      echo "<h2>". link_to_person($person{'id'},$name) . "</h2>";
+                      echo "<p>".$person{'description'}."</p>";
+                      print "</div>";
                     }
                  }
-              ?>
-              <h2>NAME</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            </div><!--/span-->
-
-      </div><!--/row-->
+            ?>
+  </div><!--/row-->
 
       <hr>
 
