@@ -1,6 +1,7 @@
 <?php
 require_once('authenticate.php');
 require('dbconnect.php');
+require('includes.php');
 
 $current_user_id = 1;
 
@@ -27,7 +28,28 @@ if(isset($_REQUEST['title']) ){
 		if (!$result) {
 		    die('Invalid query: ' . mysql_error());
 		}else {
-			echo 'Your idea has been inserted.<br />' . mysql_insert_id();
+
+			$idea_id = mysql_insert_id();
+			$interests = $_REQUEST['interests'];
+			  if(empty($interests))
+			  {
+			  }
+			  else
+			  {
+			    $N = count($interests);
+			    for($i=0; $i < $N; $i++)
+			    {
+			    	$query_cat = 'INSERT INTO Idea_Category (idea_id,category_id) VALUES ("' . $idea_id . '","' . $interests[$i] . '")';
+					$result = mysql_query($query_cat);
+					if (!$result) {
+					    die('Invalid query: ' . mysql_error());
+					}else {
+						echo "success insert";
+					}
+
+			    }
+			  }
+
 		}
 
 
@@ -45,9 +67,13 @@ if($formOk == false){
 	title: <input type="title" name="title">' . $title_err . '<br>
 	description: <br />
 	<textarea rows="4" cols="50" name="description"></textarea>
+	<br />
 
+	' . $description_err . '<br />';
 
-	' . $description_err . '<br />
+	echo check_categories();
+
+	echo '
 	<input type="submit" value="Submit">
 
 	</form>';
