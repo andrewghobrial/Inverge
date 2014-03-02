@@ -23,9 +23,35 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
+<<<<<<< HEAD
     <?php 
-    include('nav.html');
+    include('nav.php');
     ?>
+=======
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Inverge</a>
+            
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="">My Profile</a></li>
+            <li><a href="">Ideas</a></li>
+            <li><a href="">People</a></li>
+            <li><a href="">Log out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+>>>>>>> FETCH_HEAD
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -51,7 +77,7 @@
 				echo "<h1>" . $person{'fname'} . " " . $person{"lname"} . "</h1>";
 
 				echo '<div class="col-4 col-sm-4 col-lg-4">
-              		<h2>Blurb</h2>
+              		<h2>Experience</h2>
               		<p>' . $person{'description'} . '</p>
             		</div><!--/span-->';
 
@@ -81,13 +107,13 @@
             <div class="col-4 col-sm-4 col-lg-4">
               <h2>Interests</h2>
               <p>';
-				ECHO my_interests($personid);
+				ECHO "WHOOPS I WAS SUPPOSED TO DO THIS";
               echo '</p>
             </div><!--/span-->
             <div class="col-4 col-sm-4 col-lg-4">
               <h2>Ideas that interest me</h2>
               <p>';
-				my_idea_interests($personid);
+				my_interests($personid);
               echo '</p>
             </div><!--/span-->';
 

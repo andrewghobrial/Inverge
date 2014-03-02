@@ -50,7 +50,7 @@ if(!isset($_REQUEST['category'])){
   </head>
   <body>
   	<?php 
-    include('nav.html');
+    include('nav.php');
     ?>
 
 

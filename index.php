@@ -29,7 +29,7 @@ exit();
   </head>
   <body>
     <?php 
-    include('nav.html');
+    include('nav.php');
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
