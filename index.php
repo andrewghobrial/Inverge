@@ -38,6 +38,8 @@ if(mysql_num_rows($customer_update)==1) {
       <div class="container">
         <br>
         <br>
+        <br>
+        <br>
         <div class="col-md-7">
           <img src="imgs/Logo.jpg">
           <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
