@@ -1,4 +1,3 @@
 <?php
-session_start();
-print $_SESSION['id'];
+session_destroy();
 ?>
