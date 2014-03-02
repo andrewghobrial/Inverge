@@ -15,7 +15,6 @@ if(mysql_num_rows($customer_update)==1) {
 exit();
 
 }
-require('includes.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,21 +29,19 @@ require('includes.php');
   </head>
   <body>
     <?php 
-   		$global_current_user_id = $_SESSION['id'];
-    	include('nav.php');
+    include('nav.php');
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="col-md-6">
-
-
-        <h1> </h1>
-        <h1> </h1>
-        <img src="imgs/Logo.jpg">
-        <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
-        <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
+      <div class="container">
+        <div class="col-md-6">
+          <img src="imgs/Logo.jpg">
+          <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
+          <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
+        </div>
+        
+        <embed class="col-md-4" width="420" height="345" src="http://www.youtube.com/v/XGSy3_Czz8k" type="application/x-shockwave-flash"> </embed>
       </div>
-      <embed class="col-md-4" width="420" height="345" src="http://www.youtube.com/v/XGSy3_Czz8k" type="application/x-shockwave-flash"> </embed>
     </div>
 
     <div class="container">
@@ -73,6 +70,10 @@ require('includes.php');
         <p>&copy; Inverge 2014</p>
       </footer>
     </div> <!-- /container -->
+
+
+
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
