@@ -5,4 +5,9 @@ if(!isset($_COOKIE['session_id'])||$_COOKIE['session_id']!=md5($_SESSION['userna
 	header("Location: /Inverge/index.php");
     exit();
 	}
+
+
+function my_id(){
+	returns $_SESSION['id'];
+}
 ?>

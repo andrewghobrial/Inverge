@@ -1,5 +1,6 @@
 <?php
 
+
 function link_to_idea($id, $title){
 	return '<a href="idea_profile.php?id=' . $id . '">' . $title . '</a>';
 
@@ -78,6 +79,9 @@ function check_categories(){
 }
 
 
+function my_id(){
 
+
+}
 
 ?>
