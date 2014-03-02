@@ -6,16 +6,17 @@ $customer_update = mysql_query("SELECT id FROM Persons WHERE username='".$_REQUE
 if(mysql_num_rows($customer_update)==1) {
   $_SESSION['username'] = $_REQUEST['username'];
   $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
-    setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
+    setcookie('session_id',$auth_cookie_val, 0, '/', 'inverge.net',false);
     $arrayQ = mysql_fetch_assoc($customer_update);
     $id= $arrayQ['id'];
     $_SESSION['id'] = $id;
-    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/list_ideas.php");
+    header("Location: http://inverge.net/Inverge/list_ideas.php");
+} else {
+  print '<script>alert("The email and/or password is incorrect!");</script>';
 }
-exit();
+
 
 }
-require('includes.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +31,7 @@ require('includes.php');
   </head>
   <body>
     <?php 
-   		$global_current_user_id = $_SESSION['id'];
-    	include('nav.php');
+    include('nav.php');
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -46,9 +46,9 @@ require('includes.php');
           <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
         </div>
         <div class="col-md-3">
-          <embed width="480" height="390" src="http://youtu.be/TILa0VBwD8Q" type="application/x-shockwave-flash"> </embed>
+          <embed width="480" height="390" src="http://www.youtube.com/v/XGSy3_Czz8k" type="application/x-shockwave-flash"> </embed>
         </div>
-
+        
       </div>
     </div>
 
@@ -58,10 +58,7 @@ require('includes.php');
         <div class="col-md-4">
           <h2>Ideas</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <?php
-          echo '<p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>';
-          ?>
-          
+          <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>People</h2>
@@ -81,6 +78,10 @@ require('includes.php');
         <p>&copy; Inverge 2014</p>
       </footer>
     </div> <!-- /container -->
+
+
+
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
