@@ -59,6 +59,21 @@ function list_categories($parent){
 		</ul>";
 	}
 	return $list;
+}
+
+function check_categories(){
+	$query = mysql_query("SELECT * FROM AnIdeaCategory");
+	
+	$list = "";
+
+	if(mysql_num_rows($query) == 0){
+		return "error";
+	}else {
+		while ($category = mysql_fetch_array($query)) {
+			$list .= '<input type="checkbox" name="interests[]" value="' . $category{'id'} . '">' . $category{'title'} . '<br>';
+		}
+	}
+	return $list;
 
 }
 

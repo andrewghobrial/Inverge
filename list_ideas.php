@@ -105,18 +105,19 @@ if(!isset($_REQUEST['category'])){
 		                <h2>' . link_to_idea($idea{'id'},$idea{'title'}) .'</h2>
 		                <p>
 		                ' .
-			  			 link_to_person($idea{'owner_id'},get_person_name($idea{'owner_id'}));
-		                					echo "<br />categories: ";
-						$category_query = mysql_query("SELECT Idea_Category.category_id FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND Ideas.id =2");
+			  			link_to_person($idea{'owner_id'},get_person_name($idea{'owner_id'}));
+		     			echo "<br />";
+				  		echo $idea{'description'};
+
+		                echo "<br />";
+						$category_query = mysql_query("SELECT Idea_Category.category_id FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND Ideas.id =" . $idea{'id'});
 						if(mysql_num_rows($category_query)==0){
-							echo "no categories";
+
 						}else {
 							while ($category = mysql_fetch_array($category_query)) {
 								echo link_category("list_ideas.php",$category{'category_id'}) . " ";
 							}
 						}
-						echo "<br />";
-				  		echo $idea{'description'};
 
 		                echo '</p>
 		                </div>';
