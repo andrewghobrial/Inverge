@@ -33,7 +33,16 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">Inverge</a>
+            
         </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="">My Profile</a></li>
+            <li><a href="">Ideas</a></li>
+            <li><a href="">People</a></li>
+            <li><a href="">Log out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
 
