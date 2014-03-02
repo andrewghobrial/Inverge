@@ -46,6 +46,8 @@ if(mysql_num_rows($customer_update)==1) {
           <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
         </div>
         <div class="col-md-3">
+          <br>
+          <br>
           <iframe width="480" height="270" src="//www.youtube.com/embed/TILa0VBwD8Q?rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
         
