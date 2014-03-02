@@ -25,7 +25,7 @@ exit();
     <title>Inverge</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
     <?php 
