@@ -2,6 +2,8 @@
 require('dbconnect.php');
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 $customer_update = mysql_query("INSERT INTO Persons (fname,lname,description,username) VALUES ('".$_REQUEST['fname']."','".$_REQUEST['lname']."','".$_REQUEST['description']."','".$_REQUEST['username']."')");
+header('Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/profile.html');
+
 }
 ?>
 <!DOCTYPE html>
