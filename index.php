@@ -10,7 +10,7 @@ if(mysql_num_rows($customer_update)==1) {
     $arrayQ = mysql_fetch_assoc($customer_update);
     $id= $arrayQ['id'];
     $_SESSION['id'] = $id;
-    header("Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/list_ideas.php");
+    header("Location: http://inverge.net/Inverge/list_ideas.php");
 }
 exit();
 

@@ -52,12 +52,13 @@
 
 		  	while ($person = mysql_fetch_array($person_query)) {
 
-				echo "First Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"".$person{'fname'}."\" ></input>" ."Last Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"". $person{"lname"} . "\"></input>" ."E-mail Address: <input style=\"width:250px\" class=\"form-control\" type=text value=\"" .$person{"username"} . "\"></input>" ;
+				echo "First Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"".$person{'fname'}."\" ></input>
+				<br>" ."Last Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"". $person{"lname"} . "\"></input>
+				<br>" ."E-mail Address: <input style=\"width:250px\" class=\"form-control\" type=text value=\"" .$person{"username"} . "\"></input><br>" ;
 
-				echo '<div class="col-4 col-sm-4 col-lg-4">
-              		<h2>Experience</h2>
-              		<input type=textarea rows="4" cols="50" class="form-control" value="' . $person{'description'} . '"></input>
-            		</div><!--/span-->';
+				echo '
+              		Bio: <input type=textarea style="width:350px" class="form-control" value="' . $person{'description'} . '"></input>
+            		';
 
 				///Listing all ideas related to this person
             /*	echo '<div class="col-4 col-sm-4 col-lg-4">
@@ -68,32 +69,11 @@
             </div><!--/span-->';
 */
 				///Listing all teams related to this person
-                 echo '<div class="col-4 col-sm-4 col-lg-4">
+                 echo '<div class="col-6 col-sm-6 col-lg-6">
               <h2>Skills</h2>
-              <p>';
+              <input type=textarea style="width:350px" class="form-control" value="';
                my_skills($personid);
-              echo '</p> </div><!--/span-->';
-
-
-    		echo '            
-             <div class="col-4 col-sm-4 col-lg-4">
-              <h2>My Ideas</h2>
-              <p>';
-				my_ideas($personid);
-              echo '</p>
-            </div><!--/span-->
-            <div class="col-4 col-sm-4 col-lg-4">
-              <h2>Interests</h2>
-              <p>';
-				ECHO my_interests($personid);
-              echo '</p>
-            </div><!--/span-->
-            <div class="col-4 col-sm-4 col-lg-4">
-              <h2>Ideas that interest me</h2>
-              <p>';
-				my_idea_interests($personid);
-              echo '</p>
-            </div><!--/span-->';
+              echo '"></input> </div><!--/span-->';
 
 			}
 
