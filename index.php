@@ -62,7 +62,7 @@ exit();
         <h1> </h1>
         <img src="imgs/Logo.jpg">
         <p>Inverge offers a simple, yet effective, way for students to connect and brainstorm, collaborate and communicate, and share their visions. Inverge provides resources for students to innovate and succeed with their latest ventures!</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Sign Up &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" href="signup.php">Sign Up &raquo;</a></p>
       </div>
     </div>
 
