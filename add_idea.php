@@ -61,7 +61,7 @@ if(isset($_REQUEST['title']) ){
 		$formOk = true;
 		$query = 'INSERT INTO Ideas (title,description,owner_id, img_url)
 			VALUES ("' . mysql_real_escape_string($_REQUEST['title']) . 
-				'","'. mysql_real_escape_string($_REQUEST['description']) . '","' . $current_user_id . '","'. $_REQUEST['description'] . '");';
+				'","'. mysql_real_escape_string($_REQUEST['description']) . '","' . $current_user_id . '","'. $_REQUEST['image'] . '");';
 		$result = mysql_query($query);
 		if (!$result) {
 		    die('Invalid query: ' . mysql_error());

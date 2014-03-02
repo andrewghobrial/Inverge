@@ -66,7 +66,7 @@ if (isset($_REQUEST['interested'])){
 				}else {
 				  	while ($idea = mysql_fetch_array($idea_query)) {
 						if($idea{'img_url'} !== NULL){
-							echo "<img  style='max-width:300px;float: right;' src='" . $idea{'img_url'} . "'>";
+							echo "<img  style='max-width:400px;float: right;' src='" . $idea{'img_url'} . "'>";
 						}
 
 						echo "<h2>" . $idea{'title'} . "</h2>";

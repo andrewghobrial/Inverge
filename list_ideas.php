@@ -11,7 +11,7 @@ if(!isset($_REQUEST['category'])){
 		$idea_query = mysql_query("SELECT * FROM Ideas");
 		$all = true;
 	}else {
-		$idea_query = mysql_query("SELECT Idea_Category.category_id, Ideas.id, Ideas.title, Ideas.owner_id, Ideas.description FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND category_id = " .$_REQUEST["category"]);
+		$idea_query = mysql_query("SELECT Idea_Category.category_id, Ideas.id, Ideas.img_url, Ideas.title, Ideas.owner_id, Ideas.description FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND category_id = " .$_REQUEST["category"]);
 		$all = false;
 	}
 }
