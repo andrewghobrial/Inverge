@@ -1,3 +1,22 @@
+<?php
+session_start();
+require('dbconnect.php');
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+$customer_update = mysql_query("SELECT * FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'");
+print "SELECT * FROM Persons WHERE username='".$_REQUEST['username']."' AND password='".$_REQUEST['password']."'";
+print "<br>".mysql_num_rows($customer_update);
+print "<br>".mysql_num_rows($customer_update)==1;
+if(mysql_num_rows($customer_update)==1) {
+  print "<br>LOGGED IN!";
+  $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_SESSION['authsalt']);
+    setcookie('session_id',$auth_cookie_val, 0, '/', 'ec2-54-234-238-138.compute-1.amazonaws.com',false);
+}
+  else print "<br>LOGIN FAILED!";
+exit();
+//header('Location: http://ec2-54-234-238-138.compute-1.amazonaws.com/Inverge/profile.html');
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,12 +41,12 @@
           <a class="navbar-brand" href="#">Inverge</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+          <form class="navbar-form navbar-right" role="form" action="index.php" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" name="username" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
