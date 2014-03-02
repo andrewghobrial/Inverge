@@ -22,6 +22,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
   </head>
   <body>
     <?php 
@@ -51,11 +52,11 @@
 
 		  	while ($person = mysql_fetch_array($person_query)) {
 
-				echo "<h1>" . $person{'fname'} . " " . $person{"lname"} . ": " . $person{"username"} . "</h1>" ;
+				echo "First Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"".$person{'fname'}."\" ></input>" ."Last Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"". $person{"lname"} . "\"></input>" ."E-mail Address: <input style=\"width:250px\" class=\"form-control\" type=text value=\"" .$person{"username"} . "\"></input>" ;
 
 				echo '<div class="col-4 col-sm-4 col-lg-4">
-              		<h2>Bio</h2>
-              		<p>' . $person{'description'} . '</p>
+              		<h2>Experience</h2>
+              		<input type=textarea rows="4" cols="50" class="form-control" value="' . $person{'description'} . '"></input>
             		</div><!--/span-->';
 
 				///Listing all ideas related to this person

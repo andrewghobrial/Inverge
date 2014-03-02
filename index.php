@@ -15,6 +15,7 @@ if(mysql_num_rows($customer_update)==1) {
 exit();
 
 }
+require('includes.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,8 @@ exit();
   </head>
   <body>
     <?php 
-    include('nav.php');
+   		$global_current_user_id = $_SESSION['id'];
+    	include('nav.php');
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -71,10 +73,6 @@ exit();
         <p>&copy; Inverge 2014</p>
       </footer>
     </div> <!-- /container -->
-
-
-
-
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

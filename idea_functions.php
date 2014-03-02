@@ -2,14 +2,14 @@
 
 require('dbconnect.php');
 require('includes.php');
+///this isn't working
 
-
-function my_teams($ideaid){
+function my_teams_idea($ideaid){
 
 	$team_query = mysql_query("SELECT * FROM Teams WHERE idea_id =" . $ideaid);
 
 	if(mysql_num_rows($team_query)==0){
-		echo 'This idea has no team.';
+		echo 'This idea has no teams.';
 	}else {
 
 	  	while ($teams = mysql_fetch_array($team_query)) {

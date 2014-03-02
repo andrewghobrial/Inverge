@@ -6,5 +6,6 @@ if(!isset($_COOKIE['session_id'])||$_COOKIE['session_id']!=md5($_SESSION['userna
     exit();
 	}
 
+$global_current_user_id = $_SESSION['id'];
 
 ?>

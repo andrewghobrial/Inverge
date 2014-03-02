@@ -36,7 +36,6 @@ $auth_cookie_val = md5($_SESSION['username']." ".$_SERVER['REMOTE_ADDR']." ".$_S
         <input type="name" class="form-control" name="lname" placeholder="Last Name" required autofocus>
         <input type="description" class="form-control" name="description" placeholder="Background" required autofocus>
         
-        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit!</button>
       </form>
 

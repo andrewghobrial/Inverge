@@ -11,7 +11,7 @@ if(!isset($_REQUEST['category'])){
 		$idea_query = mysql_query("SELECT * FROM Ideas");
 		$all = true;
 	}else {
-		$idea_query = mysql_query("SELECT Idea_Category.category_id, Ideas.id, Ideas.title, Ideas.owner_id, Ideas.description FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND category_id = " .$_REQUEST["category"]);
+		$idea_query = mysql_query("SELECT Idea_Category.category_id, Ideas.id, Ideas.img_url, Ideas.title, Ideas.owner_id, Ideas.description FROM Ideas, Idea_Category  WHERE Ideas.id=Idea_Category.idea_id AND category_id = " .$_REQUEST["category"]);
 		$all = false;
 	}
 }
@@ -40,8 +40,10 @@ if(!isset($_REQUEST['category'])){
         display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
         margin-bottom: 20px;
         width: 100%;
-        border: 2px solid gray; 
+        border: 1px solid gray; 
         padding: 10px;
+        border-radius:8px;
+        box-shadow: 1px 1px 1px #888888;
     }
 
                 </style>
@@ -59,8 +61,15 @@ if(!isset($_REQUEST['category'])){
       <div class="container">
 
         <h1>Ideas</h1>
-        <a href="list_ideas.php">List of ideas</a>
-        
+        <?php 
+        if($all == false)
+        	$category_crumb = " > " . category_name($_REQUEST['category']);	
+        else 
+       	 $category_crumb = "";
+       	
+       	?>
+        <a href="list_ideas.php">List of ideas</a> <?php echo $category_crumb; ?>
+        <br /><br /> <button  style="width:150px;" class="btn btn-lg btn-primary btn-block" onClick="window.location.href='add_idea.php'">Create Idea</button>
       </div>
     </div>
 
@@ -68,7 +77,7 @@ if(!isset($_REQUEST['category'])){
       <!-- Example row of columns -->
       <div class="row">
             <div class="col-3 col-sm-3 col-lg-2" >
-              <h2>Categories</h2>
+              <h4>Sort by: <br />Areas of Interest</h4>
               <p>
               	<?php echo list_categories('list_ideas.php'); ?>
               </p>
@@ -95,7 +104,11 @@ if(!isset($_REQUEST['category'])){
 
 		                <h2>' . link_to_idea($idea{'id'},$idea{'title'}) .'</h2>
 		                <p>
-		                ' .
+		                ';
+		                if($idea{'img_url'} !== NULL){
+							echo "<img  style='max-width:100%;float: right;' src='" . $idea{'img_url'} . "'>";
+						}
+		                echo
 			  			link_to_person($idea{'owner_id'},get_person_name($idea{'owner_id'}));
 		     			echo "<br />";
 				  		echo $idea{'description'};

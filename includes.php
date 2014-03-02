@@ -1,5 +1,6 @@
 <?php
 
+require('person_functions.php');
 
 function link_to_idea($id, $title){
 	return '<a href="idea_profile.php?id=' . $id . '">' . $title . '</a>';
@@ -40,6 +41,19 @@ function category_name($id){
 	}
 
 }
+function skill_name($id){
+
+	$query = mysql_query("SELECT * FROM Skills WHERE id =" . $id);
+
+	if(mysql_num_rows($query)==0){
+		echo "error";
+	}else {
+		while ($category = mysql_fetch_array($query)) {
+			return $category{'title'};
+		}
+	}
+
+}
 
 function list_categories($parent){
 	$query = mysql_query("SELECT * FROM AnIdeaCategory");
@@ -62,6 +76,50 @@ function list_categories($parent){
 	return $list;
 }
 
+
+function list_skills($parent,$category_id){
+	$query = mysql_query("SELECT * FROM Skills WHERE category =" . $category_id);
+
+	if(mysql_num_rows($query)==0){
+		echo "error1";
+	}else {
+		$list = "<ul>";
+		while ($category = mysql_fetch_array($query)) {
+			$list .= "<li><a href='" . $parent . "?skill=" . $category{'id'} . "'>";
+			$list .= $category{'title'};
+			$list .= "</a></li>";
+		}
+		$list .= "
+		</ul>";
+	}
+	return $list;
+}
+
+function list_skills_category($parent){
+	$query = mysql_query("SELECT * FROM Skill_Category");
+
+	if(mysql_num_rows($query)==0){
+		echo "error";
+	}else {
+		$list = "<ul style='list-style-type: none;padding:0px;margin:0px;'>";
+		while ($category = mysql_fetch_array($query)) {
+			$list .= "<li>";
+			$list .= $category{'title'};
+			$list .= list_skills( $parent, $category{'id'});
+			$list .="</li>";
+		}
+		$list .= "
+		<li>
+			<a href='" . $parent . "?skill=all'>View All</a>
+		</li>
+		
+		</ul>";
+	}
+	return $list;
+}
+
+
+
 function check_categories(){
 	$query = mysql_query("SELECT * FROM AnIdeaCategory");
 	
@@ -71,7 +129,7 @@ function check_categories(){
 		return "error";
 	}else {
 		while ($category = mysql_fetch_array($query)) {
-			$list .= '<input type="checkbox" name="interests[]" value="' . $category{'id'} . '">' . $category{'title'} . '<br>';
+			$list .= '<input type="checkbox" class="form-control" name="interests[]" value="' . $category{'id'} . '">' . $category{'title'} . '<br>';
 		}
 	}
 	return $list;
@@ -79,9 +137,27 @@ function check_categories(){
 }
 
 
-function my_id(){
+function my_interested_ppl($ideaid){
 
+	$team_query = mysql_query("SELECT * FROM Interest WHERE idea_id =" . $ideaid);
 
+	if(mysql_num_rows($team_query)==0){
+		echo 'This idea has no interest.';
+	}else {
+
+	  	while ($teams = mysql_fetch_array($team_query)) {
+
+	  		//list interested ppl
+			$person_query = mysql_query("SELECT * FROM Persons WHERE id =" . $teams{'person_id'});
+			while ($person = mysql_fetch_array($person_query)) {
+				$name = $person{'fname'} . ' ' . $person{'lname'} . "<br />";
+				echo link_to_person($person{'id'},$name);
+			}
+			
+	  	}
+	}
 }
+
+
 
 ?>
