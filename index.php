@@ -68,7 +68,7 @@ if(mysql_num_rows($customer_update)==1) {
           <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>teams</h2>
+          <h2>Teams</h2>
           <p>Contact other members to form teams around an idea. Multiple teams can form around one idea - creativity and execution are what set your team apart!</p>
           <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
         </div>
