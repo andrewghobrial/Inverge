@@ -59,6 +59,7 @@ if(!isset($_REQUEST['category'])){
       <div class="container">
 
         <h1>Ideas</h1>
+        List of ideas
         
       </div>
     </div>
