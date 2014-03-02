@@ -1,5 +1,5 @@
 <?php
-
+require_once('authenticate.php');
 require('dbconnect.php');
 
 $current_user_id = 1;
