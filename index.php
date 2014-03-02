@@ -11,8 +11,10 @@ if(mysql_num_rows($customer_update)==1) {
     $id= $arrayQ['id'];
     $_SESSION['id'] = $id;
     header("Location: http://inverge.net/Inverge/list_ideas.php");
+} else {
+  print '<script>alert("The email and/or password is incorrect!");</script>';
 }
-exit();
+
 
 }
 ?>

@@ -2,14 +2,13 @@
 	
 	require_once('authenticate.php');
 	
-	if(isset($_REQUEST["id"])){
-		$personid = $_REQUEST["id"];
-	}else {
-		$personid = 1;
-	}
+	$personid = $global_current_user_id;
 	require('dbconnect.php');
 	require('includes.php');
 
+	if(isset($_REQUEST['submit'])){
+		echo 'fuck u' . $_REQUEST['fname'];
+	}
 
 ?>
 <!DOCTYPE html>
@@ -51,13 +50,13 @@
 		}else {
 
 		  	while ($person = mysql_fetch_array($person_query)) {
-
-				echo "First Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"".$person{'fname'}."\" ></input>
-				<br>" ."Last Name: <input style=\"width:150px\" class=\"form-control\" type=text value=\"". $person{"lname"} . "\"></input>
-				<br>" ."E-mail Address: <input style=\"width:250px\" class=\"form-control\" type=text value=\"" .$person{"username"} . "\"></input><br>" ;
+				echo '	<form name="input" action="person_profile_edit.php" method="get">';
+				echo "First Name: <input style=\"width:150px\" name='fname' class=\"form-control\" type=text value=\"".$person{'fname'}."\" ></input>
+				<br>" ."Last Name: <input style=\"width:150px\" name='lname' class=\"form-control\" type=text value=\"". $person{"lname"} . "\"></input>
+				<br>" ."E-mail Address: <input style=\"width:250px\" name='username' class=\"form-control\" type=text value=\"" .$person{"username"} . "\"></input><br>" ;
 
 				echo '
-              		Bio: <input type=textarea style="width:350px" class="form-control" value="' . $person{'description'} . '"></input>
+              		Bio: <input type=textarea  name="bio" style="width:350px" class="form-control" value="' . $person{'description'} . '"></input>
             		';
 
 				///Listing all ideas related to this person
@@ -70,10 +69,13 @@
 */
 				///Listing all teams related to this person
                  echo '<div class="col-6 col-sm-6 col-lg-6">
-              <h2>Skills</h2>';
-              list_skills_edit();
-              echo '</div><!--/span-->';
-
+              <h2>Skills will go here</h2>';
+              
+              
+              echo '<br /><br /> <button  style="width:150px;"  class="btn btn-lg btn-primary btn-block" type="submit">Submit!</button>';
+              
+              echo '</div></form><!--/span-->';
+			
 			}
 
 		}
