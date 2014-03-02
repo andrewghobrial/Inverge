@@ -26,9 +26,9 @@
 		}else {
 			echo '<div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="">My Profile</a></li>
-            <li><a href="">Ideas</a></li>
-            <li><a href="">People</a></li>
+            <li><a href="page_profile.php?id=' . $_SESSION['id'] . '">My Profile</a></li>
+            <li><a href="list_ideas.php">Ideas</a></li>
+            <li><a href="list_people.php">People</a></li>
             <li><a href="">Log out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
